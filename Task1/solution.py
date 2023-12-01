@@ -17,7 +17,7 @@ def convert_str(str_in):
                     elif count_key == str_out.count(key_2):
                         str_out = str_out.replace(key_2, str(dict_convert[key]))
                     else:
-                        raise Exception("Не понятная хуйня как попали - ваще хз")
+                        raise Exception("Что-то пошло не плану!")
             else:
                 str_out = str_in.replace(key, str(dict_convert[key]))
     return str_out if str_out else str_in
