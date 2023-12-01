@@ -28,15 +28,13 @@ def get_sum(list_data):
         if re.match("^\d+?\.\d+?$", s) is None:
             return s.isdigit()
         return True
-    list_num_all = []
+    sum_all = 0
     for i in list_data:
         list_num_ = [j for j in i if is_number(j)]
         if not list_num_:
             continue
         else:
-            sum_j = int(list_num_[0] + list_num_[-1])
-            list_num_all.append(sum_j)
-
-    return sum(list_num_all)
+            sum_all += int(list_num_[0] + list_num_[-1])
+    return sum_all
 print(f"Решение задания 1: {get_sum(list_str)}")
 print(f"Решение задания 2: {get_sum(list_str_convert)}")
