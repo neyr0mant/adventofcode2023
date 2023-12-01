@@ -23,14 +23,9 @@ def convert_str(str_in):
     return str_out if str_out else str_in
 list_str_convert = [convert_str(i) for i in list_str]
 def get_sum(list_data):
-    def is_number(s):
-        import re
-        if re.match("^\d+?\.\d+?$", s) is None:
-            return s.isdigit()
-        return True
     sum_all = 0
     for i in list_data:
-        list_num_ = [j for j in i if is_number(j)]
+        list_num_ = [j for j in i if j.isdigit()]
         if list_num_:
             sum_all += int(list_num_[0] + list_num_[-1])
     return sum_all
