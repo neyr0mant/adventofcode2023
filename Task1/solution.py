@@ -31,9 +31,7 @@ def get_sum(list_data):
     sum_all = 0
     for i in list_data:
         list_num_ = [j for j in i if is_number(j)]
-        if not list_num_:
-            continue
-        else:
+        if list_num_:
             sum_all += int(list_num_[0] + list_num_[-1])
     return sum_all
 print(f"Решение задания 1: {get_sum(list_str)}")
