@@ -10,15 +10,5 @@ def get_fist_digit(str_in, reverse=False, part =1):
                 key_ = key if not reverse else key[::-1]
                 if key_ in str_in[:idx+1]:
                     return str(dict_convert[key])
-summ_all_1 = 0
-for i in list_str:
-    fist_num = get_fist_digit(i)
-    last_num = get_fist_digit(i[::-1], reverse=True)
-    summ_all_1 += int(fist_num+last_num)
-summ_all_2 = 0
-for i in list_str:
-    fist_num = get_fist_digit(i, part=2)
-    last_num = get_fist_digit(i[::-1], reverse=True, part=2)
-    summ_all_2 += int(fist_num+last_num)
-print(f"Решение задания 1: {summ_all_1}")
-print(f"Решение задания 2: {summ_all_2}")
+print(f"Решение задания 1: {sum([(int(get_fist_digit(i)+get_fist_digit(i[::-1], reverse=True))) for i in list_str])}")
+print(f"Решение задания 2: {sum([(int(get_fist_digit(i, part=2)+get_fist_digit(i[::-1], reverse=True, part=2))) for i in list_str])}")
