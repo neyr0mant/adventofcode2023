@@ -31,11 +31,11 @@ for game, data_game in dict_data.items():
                 break
 power = 0
 for game, data_game in dict_data.items():
-    list_min = []
+    list_max = []
     for key, list_count in data_game.items():
-        list_min.append(max(list_count))
+        list_max.append(max(list_count))
     power_game = 1
-    for i in list_min:
+    for i in list_max:
         power_game *=i
     power +=power_game
 print(f"Решение задания 1: {all_summ_game - sum(set_not_impossible_game)}")
