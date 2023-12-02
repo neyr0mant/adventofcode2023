@@ -1,3 +1,4 @@
+#https://adventofcode.com/2023/day/2
 dict_data = {}
 for i in open("data.txt"):
     str_ = i.strip("\n ")
