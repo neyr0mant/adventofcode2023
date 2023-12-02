@@ -1,4 +1,3 @@
-#https://adventofcode.com/2023/day/2
 dict_data = {}
 for i in open("data.txt"):
     str_ = i.strip("\n ")
@@ -39,6 +38,6 @@ for game, data_game in dict_data.items():
     for i in list_min:
         power_game *=i
     power +=power_game
-print(f"Решение задания 1: {all_summ_game - sum(set(set_not_impossible_game))}")
+print(f"Решение задания 1: {all_summ_game - sum(set_not_impossible_game)}")
 print(f"Решение задания 2: {power}")
 
