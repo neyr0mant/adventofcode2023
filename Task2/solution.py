@@ -17,9 +17,8 @@ for i in open("data.txt"):
                 dict_data[index_game][key_1].append(int(key_2))
             else:
                 dict_data[index_game].update({key_1: [int(key_2)]})
-print(dict_data)
 dict_rule = {"red":12, 'green':13, 'blue':14}
-set_not_imposble_game = set()
+set_not_impossible_game = set()
 all_summ_game = 0
 for game, data_game in dict_data.items():
     game = int(game)
@@ -28,7 +27,7 @@ for game, data_game in dict_data.items():
         data_game_for_key = data_game.get(key)
         if data_game_for_key:
             if max(data_game_for_key) > count:
-                set_not_imposble_game.add(game)
+                set_not_impossible_game.add(game)
                 break
 power = 0
 for game, data_game in dict_data.items():
@@ -39,6 +38,6 @@ for game, data_game in dict_data.items():
     for i in list_min:
         power_game *=i
     power +=power_game
-print(f"Решение задания 1: {all_summ_game - sum(set(set_not_imposble_game))}")
+print(f"Решение задания 1: {all_summ_game - sum(set(set_not_impossible_game))}")
 print(f"Решение задания 2: {power}")
 
