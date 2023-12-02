@@ -1,5 +1,5 @@
-list_str = [i.strip("\n ") for i in open("data.txt")]
 #https://adventofcode.com/2023/day/1
+list_str = [i.strip("\n ") for i in open("data.txt")]
 def get_fist_digit(str_in, reverse=False, part =1):
     dict_convert = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9,}
     for idx, i in enumerate(str_in):
