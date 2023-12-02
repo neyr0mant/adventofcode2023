@@ -1,31 +1,24 @@
 list_str = [i.strip("\n ") for i in open("data.txt")]
 #https://adventofcode.com/2023/day/1
-def convert_str(str_in):
-    str_out = ""
-    dict_convert = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, }
-    for key in dict_convert:
-        count_key = str_in.count(key)
-        key_1, key_2 = key[1:], key[:-1]
-        if key in str_in:
-            if str_out:
-                count_key_out = str_out.count(key)
-                if count_key_out == count_key:
-                    str_out = str_out.replace(key, str(dict_convert[key]))
-                else:
-                    if count_key == str_out.count(key_1):
-                        str_out = str_out.replace(key_1, str(dict_convert[key]))
-                    elif count_key == str_out.count(key_2):
-                        str_out = str_out.replace(key_2, str(dict_convert[key]))
-            else:
-                str_out = str_in.replace(key, str(dict_convert[key]))
-    return str_out if str_out else str_in
-list_str_convert = [convert_str(i) for i in list_str]
-def get_sum(list_data):
-    sum_all = 0
-    for i in list_data:
-        list_num_ = [j for j in i if j.isdigit()]
-        if list_num_:
-            sum_all += int(list_num_[0] + list_num_[-1])
-    return sum_all
-print(f"Решение задания 1: {get_sum(list_str)}")
-print(f"Решение задания 2: {get_sum(list_str_convert)}")
+def get_fist_digit(str_in, reverse=False, part =1):
+    dict_convert = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9,}
+    for idx, i in enumerate(str_in):
+        if i.isdigit():
+            return i
+        if part ==2:
+            for key, val in dict_convert.items():
+                key_ = key if not reverse else key[::-1]
+                if key_ in str_in[:idx+1]:
+                    return str(dict_convert[key])
+summ_all_1 = 0
+for i in list_str:
+    fist_num = get_fist_digit(i)
+    last_num = get_fist_digit(i[::-1], reverse=True)
+    summ_all_1 += int(fist_num+last_num)
+summ_all_2 = 0
+for i in list_str:
+    fist_num = get_fist_digit(i, part=2)
+    last_num = get_fist_digit(i[::-1], reverse=True, part=2)
+    summ_all_2 += int(fist_num+last_num)
+print(f"Решение задания 1: {summ_all_1}")
+print(f"Решение задания 2: {summ_all_2}")
