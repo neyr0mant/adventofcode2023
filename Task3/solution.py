@@ -29,7 +29,7 @@ def find_num_in_str(str_in, index):
         i += 1
     return [str_left[::-1] + cur_num + str_right] if cur_num.isdigit() else [str_left[::-1], str_right]
 def get_answer(part=1):
-    answer_1, answer_2 = 0, 0
+    answer = 0
     for number_str, cur_str in enumerate(list_str):
         for index_symbol, candidate in enumerate(cur_str):
             assertion_condition = candidate != "." and not candidate.isdigit() if part == 1 else (
@@ -42,23 +42,20 @@ def get_answer(part=1):
                             if part == 2:
                                 list_num.append(int(num))
                             else:
-                                answer_1 += int(num)
+                                answer += int(num)
                 if len(list_num) == 2:
-                    answer_2 += list_num[0]*list_num[1]
-    return answer_1 if part == 1 else answer_2
+                    answer += list_num[0]*list_num[1]
+    return answer
 import time
-t_start = time.time()
+t_start1 = time.time()
 for i in range(1000):
     get_answer(part=2)
-t_finish = time.time()
-print(f"Время выполнения за 1000 циклов составило: {t_finish- t_start}")
+t_finish1 = time.time()
+t_start2 = time.time()
+for i in range(1000):
+    get_answer(part=2)
+t_finish2 = time.time()
+print(f"Время выполнения Ч1 за 1000 циклов составило: {t_finish1- t_start1}")
+print(f"Время выполнения Ч2 за 1000 циклов составило: {t_finish2- t_start2}")
 print(f"Решение задания 1:{get_answer(part=1)}")
 print(f"Решение задания 2:{get_answer(part=2)}")
-
-
-
-
-
-
-
-
