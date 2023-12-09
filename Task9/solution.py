@@ -1,7 +1,5 @@
 list_str = [i.strip("\n ").split() for i in open("input.txt")]
-list_num = []
-for i in list_str:
-    list_num.append([int(j) for j in i])
+list_num = [[int(j) for j in i] for i in list_str]
 def get_sum(list_start):
     summ_all = list_start[-1]
     while True:
