@@ -9,26 +9,22 @@ def get_next_list(list_in):
             next_list.append(list_in[idx+1] - i)
     return next_list
 
-def get_sum_recursion(list_in, old_summ = 0):
-    list_start = list_in
-    summ_all = list_in[-1] + old_summ
+def get_sum_recursion(list_start, old_summ = 0):
+    summ_all = list_start[-1] + old_summ
     new_list = get_next_list(list_start)
     if not any(new_list):
         return summ_all
     else:
         return get_sum_recursion(new_list, old_summ=summ_all)
 
-def get_sum_wile(list_in):
-    list_start = list_in
+def get_sum_wile(list_start):
     summ_all = list_start[-1]
-    cur_list = list_start
     while True:
-        new_list = get_next_list(cur_list)
-        if not any(new_list):
+        list_start = get_next_list(list_start)
+        if not any(list_start):
             break
         else:
-            summ_all += new_list[-1]
-            cur_list = new_list
+            summ_all += list_start[-1]
     return summ_all
 print(f"Решение задания 1 через while:{sum([get_sum_wile(i) for i in list_num])}")
 print(f"Решение задания 2 через while:{sum([get_sum_wile(i[::-1]) for i in list_num])}")
