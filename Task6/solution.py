@@ -1,4 +1,4 @@
-#https://adventofcode.com/2023/day/3
+#https://adventofcode.com/2023/day/6
 list_str = [i.strip("\n ").split(":") for i in open("input.txt")]
 list_time = [i[1].replace("      ", "").split()for i in list_str]
 data_1 = {}
