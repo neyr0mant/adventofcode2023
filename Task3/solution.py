@@ -47,15 +47,5 @@ def get_answer(part=1):
                     answer += list_num[0]*list_num[1]
     return answer
 import time
-t_start1 = time.time()
-for i in range(1000):
-    get_answer(part=2)
-t_finish1 = time.time()
-t_start2 = time.time()
-for i in range(1000):
-    get_answer(part=2)
-t_finish2 = time.time()
-print(f"Время выполнения Ч1 за 1000 циклов составило: {t_finish1- t_start1}")
-print(f"Время выполнения Ч2 за 1000 циклов составило: {t_finish2- t_start2}")
 print(f"Решение задания 1:{get_answer(part=1)}")
 print(f"Решение задания 2:{get_answer(part=2)}")
