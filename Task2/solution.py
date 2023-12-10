@@ -1,6 +1,6 @@
 #https://adventofcode.com/2023/day/2
 dict_data_game = {}
-for i in open("data.txt"):
+for i in open("input.txt"):
     str_ = i.strip("\n ")
     index_game = str_.split(":")[0].split()[1]
     dict_data_game.update({index_game: {}})

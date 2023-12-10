@@ -1,5 +1,5 @@
 #https://adventofcode.com/2023/day/3
-list_str = [i.strip("\n ") for i in open("data.txt")]
+list_str = [i.strip("\n ") for i in open("input.txt")]
 
 def find_num_in_str(str_in, index):
     cur_symbol, len_str = str_in[index], len(str_in)
