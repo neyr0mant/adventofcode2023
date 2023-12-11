@@ -1,4 +1,4 @@
-#https://adventofcode.com/2023/day/6
+#https://adventofcode.com/2023/day/7
 list_str = [i.strip("\n ").split() for i in open("input.txt")]
 dict_data = {i[0]:i[1] for i in list_str}
 from collections import Counter
