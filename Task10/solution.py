@@ -18,30 +18,6 @@ class Pipeline:
                        f"левом углу, ось Y смотрит вниз, X - вправо\nПараметры:\nШирина: {self.x_max+1}, Высота: "
                        f"{self.y_max+1}, Точка старта: {self.coordinate_start}")
         print(description)
-    @staticmethod
-    def assert_borders(func):
-        def wrapper(*args, **kwargs):
-            self, x, y = args[0], args[1][0], args[1][1]
-            list_potential = []
-            try:
-                list_x, list_y = ([x-1, y], [x+1, y]), ([x, y-1], [x, y+1])
-                for x in list_x:
-                    if 0 <= x <= self.x_max:
-                        list_potential.append(x)
-                    else:
-                        list_potential.append(False)
-                for y in list_y:
-                    if 0 <= y <= self.y_max:
-                        list_potential.append(y)
-                    else:
-                        list_potential.append(False)
-            except Exception as e:
-                if kwargs.get("error_assert"):
-                    raise AssertionError(e)
-                else:
-                    return list_potential
-            return func(*args, **kwargs)
-        return wrapper
     def get_elem_for_coordinate(self, coordinate):
         if isinstance(coordinate, list):
             x, y = coordinate[0], coordinate[1]
@@ -135,14 +111,12 @@ class Pipeline:
             else:
                 print(f"Путешествие закончилось, количество шагов по ВСЕЙ цепочке {self.count_step}")
                 return self.count_step // 2
-
-
-
-
-
+import time
+time_s = time.time()
 lab = Pipeline(list_str)
-start = lab.coordinate_start
-print(lab.walk_pipline())
+print(f"Решение задания 1:{(lab.walk_pipline())}")
+time_f = time.time()
+print(f"Время: {time_f-time_s}")
 
 
 
