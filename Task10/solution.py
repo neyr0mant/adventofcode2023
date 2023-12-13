@@ -52,11 +52,10 @@ class Pipeline:
                 list_only_potential_coordinate.append(False)
         return list_only_potential_coordinate
 
-    def get_visual_configuration(self, list_coordinate, cur_coordinate):
+    def get_visual_configuration(self, list_coordinate):
         list_only_symbol = [self.get_elem_for_coordinate(i) for i in list_coordinate]
-        list_symbol_replace = [i if isinstance(i, str) else "." for i in list_only_symbol]
-        left, right, up, down = list_symbol_replace
-        cur = self.get_elem_for_coordinate(cur_coordinate)
+        left, right, up, down = list_only_symbol
+        cur = "?"
         configuration = f"""##########################
         {up} 
       {left} {cur} {right}               
@@ -100,7 +99,7 @@ class Pipeline:
         while True:
             self.count_step += 1
             next_place = self.get_next_coordinate(start_place, old_place)[0]
-            old_place_visual = self.get_visual_configuration(list_start_allowed_only_coordinate, old_place)
+            old_place_visual = self.get_visual_configuration(self.get_only_potential_coordinate(start_place))
             step_visual = (f"{old_place} {self.get_elem_for_coordinate(old_place)} ---> "
                            f"{start_place} {self.get_elem_for_coordinate(start_place)}")
             print(f"Шаг {self.count_step}\n{step_visual}")
@@ -117,7 +116,3 @@ lab = Pipeline(list_str)
 print(f"Решение задания 1:{(lab.walk_pipline())}")
 time_f = time.time()
 print(f"Время: {time_f-time_s}")
-
-
-
-
