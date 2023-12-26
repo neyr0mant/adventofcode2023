@@ -7,6 +7,7 @@ for idx, i in enumerate(list_data):
     for j in list_data[idx+1:]:
         x_j, y_j,z_j,  v_j_x, v_j_y, v_j_z = j
         c = v_j_y*v_i_x - v_i_y*v_j_x
+        # Потребуем чтобы прямые были не параллельны
         if c != 0:
             t_j = (v_i_x*(y_i - y_j) + v_i_y*(x_j-x_i))/c
             t_i = (x_j + v_j_x*t_j - x_i)/v_i_x
