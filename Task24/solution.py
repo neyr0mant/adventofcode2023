@@ -9,8 +9,8 @@ for idx, i in enumerate(list_data):
         c = v_j_y*v_i_x - v_i_y*v_j_x
         if c != 0:
             t_j = (v_i_x*(y_i - y_j) + v_i_y*(x_j-x_i))/c
-            #Потребуем чтобы пересечение было в будущем
             t_i = (x_j + v_j_x*t_j - x_i)/v_i_x
+            # Потребуем чтобы пересечение было в будущем
             if t_j > 0 and t_i > 0:
                 x_intersection = x_j + v_j_x*t_j
                 y_intersection = y_j + v_j_y*t_j
